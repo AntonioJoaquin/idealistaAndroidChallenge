@@ -30,6 +30,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
             if (thumbnail.isNotEmpty()) Picasso.with(holder.image.context).load(thumbnail).into(holder.image)
             holder.title.text = title
             holder.price.text = price
+            holder.parent.setOnClickListener { listener.onAdClicked(ads[position]) }
         }
     }
 

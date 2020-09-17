@@ -35,4 +35,10 @@ class ListActivity : AppCompatActivity(), ListView {
         })
     }
 
+    override fun goToAdDetail(ad: AdModel) {
+        val intent = Addressable.Activity.Ads.intentTo()
+        intent.putExtra("URL", ad.detailUrl)
+        startActivity(intent)
+    }
+
 }

@@ -9,6 +9,7 @@ import com.idealista.android.challenge.list.domain.Ad
 
 data class AdModel(
     val id: String,
+    val detailUrl: String,
     val thumbnail: String,
     val price: String,
     val title: String
@@ -17,6 +18,7 @@ data class AdModel(
 fun Ad.toModel() =
     AdModel(
         id,
+        detailUrl,
         thumbnail,
         formatPrice(price),
         formatTitle(typology, operation))
