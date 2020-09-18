@@ -11,17 +11,59 @@
             type="com.idealista.android.challenge.list.ui.AdsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey10"
-        tools:context=".ui.AdsActivity">
+        android:fillViewport="true">
 
-        <TextView
-            android:id="@+id/textView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{viewModel.ad.title}"
-            android:textColor="@android:color/black"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="wrap_content"
+            android:background="@color/grey10"
+            tools:context=".ui.AdsActivity">
+
+            <TextView
+                android:id="@+id/textViewAdTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@{viewModel.ad.title}"
+                android:textSize="24sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                tools:text="Ad Title"/>
+
+            <TextView
+                android:id="@+id/textViewPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintTop_toBottomOf="@id/textViewAdTitle"
+                app:layout_constraintBottom_toTopOf="@id/textViewAdDescription"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@{viewModel.ad.price}"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                tools:text="600€" />
+
+            <TextView
+                android:id="@+id/textViewAdDescription"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintTop_toBottomOf="@id/textViewPrice"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@{viewModel.ad.propertyComment}"
+                android:textColor="@color/black"
+                tools:text="@tools:sample/lorem/random"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

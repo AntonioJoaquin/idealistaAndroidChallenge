@@ -33,7 +33,7 @@ class AdsActivity : AppCompatActivity() {
 
 
     private fun init() {
-        binding.textView.text = ""
+        binding.textViewAdTitle.text = ""
         viewModel.getAdDetails(adPath)
     }
 }
