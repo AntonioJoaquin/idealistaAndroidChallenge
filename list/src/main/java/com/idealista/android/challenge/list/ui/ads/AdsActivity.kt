@@ -37,8 +37,17 @@ class AdsActivity : AppCompatActivity() {
 
 
     private fun init() {
-        binding.viewMultimedia.tabLayoutIndicator.setupWithViewPager(binding.viewMultimedia.viewPagerMultimedias)
+        initView()
+
         viewModel.getAdDetails(adPath)
+    }
+
+    private fun initView() {
+        binding.viewMultimedia.tabLayoutIndicator.setupWithViewPager(binding.viewMultimedia.viewPagerMultimedias)
+
+        binding.textViewAdDescription.maxLines = DEFAULT_LINES_SPANNABLE_TEXT
+
+        binding.textViewSeeAllDescription.clickForSpannableText(binding.textViewAdDescription)
     }
 
 }

@@ -1,1 +1,6 @@
-<resources></resources>
+<resources>
+
+    <string name="ads_show_all_description"><u>Mostrar comentario completo</u></string>
+    <string name="ads_hide_all_description"><u>Oculta comentario completo</u></string>
+
+</resources>
