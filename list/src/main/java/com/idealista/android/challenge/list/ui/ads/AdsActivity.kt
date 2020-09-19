@@ -37,7 +37,7 @@ class AdsActivity : AppCompatActivity() {
 
 
     private fun init() {
-        binding.textViewAdTitle.text = ""
+        binding.viewMultimedia.tabLayoutIndicator.setupWithViewPager(binding.viewMultimedia.viewPagerMultimedias)
         viewModel.getAdDetails(adPath)
     }
 
