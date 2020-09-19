@@ -9,7 +9,8 @@ data class AdDetail(
     val price: Double,
     val extendedPropertyType: Typology,
     val operation: Operation,
-    val propertyComment: String
+    val propertyComment: String,
+    val multimedias: Multimedias
 )
 
 fun AdDetailEntity.toDomain() =
@@ -18,5 +19,6 @@ fun AdDetailEntity.toDomain() =
         price ?: 0.0,
         Typology.from(extendedPropertyType ?: ""),
         Operation.from(operation ?: ""),
-        propertyComment ?: ""
+        propertyComment ?: "",
+        multimedia?.toDomain() ?: Multimedias(emptyList())
     )

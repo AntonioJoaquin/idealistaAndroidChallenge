@@ -14,7 +14,7 @@
         </activity>
 
         <activity
-            android:name=".ui.AdsActivity"
+            android:name=".ui.ads.AdsActivity"
             android:theme="@style/AppTheme.Base" />
     </application>
 

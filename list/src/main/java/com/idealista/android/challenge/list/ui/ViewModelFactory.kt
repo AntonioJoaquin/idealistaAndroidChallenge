@@ -2,6 +2,7 @@ package com.idealista.android.challenge.list.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.idealista.android.challenge.list.ui.ads.AdsViewModel
 
 class ViewModelFactory: ViewModelProvider.NewInstanceFactory() {
 

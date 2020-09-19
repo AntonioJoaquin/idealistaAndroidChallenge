@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui
+package com.idealista.android.challenge.list.ui.ads
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -10,6 +10,8 @@ import com.idealista.android.challenge.core.wrench.usecase.UseCase
 import com.idealista.android.challenge.list.ListAssembler
 import com.idealista.android.challenge.list.domain.AdDetail
 import com.idealista.android.challenge.list.domain.adDetail
+import com.idealista.android.challenge.list.ui.ads.model.AdDetailModel
+import com.idealista.android.challenge.list.ui.ads.model.toDomain
 
 class AdsViewModel: ViewModel() {
 

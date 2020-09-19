@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui
+package com.idealista.android.challenge.list.ui.ads.model
 
 import com.idealista.android.challenge.core.CoreAssembler
 import com.idealista.android.challenge.core.model.Operation
@@ -12,15 +12,20 @@ data class AdDetailModel(
     val id: String,
     val title: String,
     val price: String,
-    val propertyComment: String
+    val propertyComment: String,
+    val multimedias: List<String>
 )
 
 fun AdDetail.toDomain() =
     AdDetailModel(
         id,
-        formatTitle(extendedPropertyType, operation),
+        formatTitle(
+            extendedPropertyType,
+            operation
+        ),
         formatPrice(price),
-        propertyComment
+        propertyComment,
+        multimedias.images.map { it.url }
     )
 
 

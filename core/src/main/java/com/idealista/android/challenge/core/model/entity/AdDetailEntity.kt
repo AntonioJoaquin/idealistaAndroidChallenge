@@ -5,5 +5,6 @@ data class AdDetailEntity(
     val price: Double?,
     val extendedPropertyType: String?,
     val operation: String?,
-    val propertyComment: String?
+    val propertyComment: String?,
+    val multimedia: MultimediasEntity?
 )

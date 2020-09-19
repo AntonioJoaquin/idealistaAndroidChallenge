@@ -1,12 +1,13 @@
-package com.idealista.android.challenge.list.ui
+package com.idealista.android.challenge.list.ui.ads
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.idealista.android.challenge.list.R
 import com.idealista.android.challenge.list.databinding.ActivityAdsBinding
+import com.idealista.android.challenge.list.ui.ViewModelFactory
+import com.idealista.android.challenge.list.ui.ads.multimedias.ImageSliderAdapter
 
 class AdsActivity : AppCompatActivity() {
 
@@ -16,9 +17,12 @@ class AdsActivity : AppCompatActivity() {
     private val binding: ActivityAdsBinding by lazy {
         DataBindingUtil.setContentView<ActivityAdsBinding>(this@AdsActivity, R.layout.activity_ads).apply {
             this.lifecycleOwner = this@AdsActivity
+            this.adapter = this@AdsActivity.adapter
             this.viewModel = this@AdsActivity.viewModel
         }
     }
+
+    private val adapter = ImageSliderAdapter()
 
     private lateinit var adPath: String
 
@@ -36,4 +40,5 @@ class AdsActivity : AppCompatActivity() {
         binding.textViewAdTitle.text = ""
         viewModel.getAdDetails(adPath)
     }
+
 }
