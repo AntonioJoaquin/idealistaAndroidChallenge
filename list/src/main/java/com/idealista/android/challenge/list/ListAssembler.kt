@@ -3,7 +3,7 @@ package com.idealista.android.challenge.list
 import com.idealista.android.challenge.core.CoreAssembler
 import com.idealista.android.challenge.list.data.ListDataSource
 import com.idealista.android.challenge.list.data.ListRepository
-import com.idealista.android.challenge.list.ui.ListPresenter
+import com.idealista.android.challenge.list.ui.list.ListPresenter
 
 object ListAssembler {
 

@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui
+package com.idealista.android.challenge.list.ui.list.model
 
 import com.idealista.android.challenge.core.CoreAssembler
 import com.idealista.android.challenge.core.R
@@ -9,6 +9,7 @@ import com.idealista.android.challenge.list.domain.Ad
 
 data class AdModel(
     val id: String,
+    val detailUrl: String,
     val thumbnail: String,
     val price: String,
     val title: String
@@ -17,9 +18,14 @@ data class AdModel(
 fun Ad.toModel() =
     AdModel(
         id,
+        detailUrl,
         thumbnail,
         formatPrice(price),
-        formatTitle(typology, operation))
+        formatTitle(
+            typology,
+            operation
+        )
+    )
 
 private fun formatPrice(price: Double) = "$price €"
 private fun formatTitle(typology: Typology, operation: Operation) =

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="adapter"
+            type="com.idealista.android.challenge.list.ui.ads.multimedias.ImageSliderAdapter" />
+
+        <variable
+            name="ad"
+            type="com.idealista.android.challenge.list.ui.ads.model.AdDetailModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey10">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineIndicators"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerMultimedias"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            app:bindAdapter="@{adapter}"
+            app:layout_constraintBottom_toBottomOf="@id/guidelineOptions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:setItems="@{ad.multimedias}" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutIndicator"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/whiteSemiTransparent"
+            app:tabBackground="@drawable/indicator_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="2dp"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:layout_constraintTop_toBottomOf="@id/guidelineIndicators"
+            app:layout_constraintBottom_toTopOf="@id/guidelineOptions"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </com.google.android.material.tabs.TabLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_multimedia_footer"
+            app:layout_constraintTop_toBottomOf="@id/guidelineOptions"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewFavorite"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingVertical="4dp"
+            app:srcCompat="@drawable/ic_empty_favorite"
+            app:tint="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imageViewMessage"
+            app:layout_constraintTop_toBottomOf="@id/guidelineOptions"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewMessage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingVertical="4dp"
+            android:src="@drawable/ic_message"
+            app:tint="@color/colorAccent"
+            app:layout_constraintStart_toEndOf="@id/imageViewFavorite"
+            app:layout_constraintEnd_toStartOf="@id/imageViewCall"
+            app:layout_constraintTop_toBottomOf="@id/guidelineOptions"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewCall"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingVertical="4dp"
+            app:srcCompat="@drawable/ic_call"
+            app:tint="@color/colorAccent"
+            app:layout_constraintStart_toEndOf="@id/imageViewMessage"
+            app:layout_constraintEnd_toStartOf="@id/imageViewShare"
+            app:layout_constraintTop_toBottomOf="@id/guidelineOptions"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewShare"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingVertical="4dp"
+            app:srcCompat="@drawable/ic_share"
+            app:tint="@color/colorAccent"
+            app:layout_constraintStart_toEndOf="@id/imageViewCall"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guidelineOptions"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
