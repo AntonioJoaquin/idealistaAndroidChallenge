@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name=".ui.ListActivity"
+            android:name=".ui.list.ListActivity"
             android:theme="@style/AppTheme.Base">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

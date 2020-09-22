@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui
+package com.idealista.android.challenge.list.ui.list.model
 
 import com.idealista.android.challenge.core.CoreAssembler
 import com.idealista.android.challenge.core.R
@@ -21,7 +21,11 @@ fun Ad.toModel() =
         detailUrl,
         thumbnail,
         formatPrice(price),
-        formatTitle(typology, operation))
+        formatTitle(
+            typology,
+            operation
+        )
+    )
 
 private fun formatPrice(price: Double) = "$price €"
 private fun formatTitle(typology: Typology, operation: Operation) =
