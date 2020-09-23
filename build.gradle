@@ -18,6 +18,7 @@ allprojects {
 
     ext {
         lifecycle_version = "2.2.0"
+        room_version = "2.2.5"
     }
 }
 
