@@ -9,8 +9,8 @@
             type="com.idealista.android.challenge.list.ui.ads.multimedias.ImageSliderAdapter" />
 
         <variable
-            name="ad"
-            type="com.idealista.android.challenge.list.ui.ads.model.AdDetailModel" />
+            name="viewModel"
+            type="com.idealista.android.challenge.list.ui.ads.AdsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,7 +44,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:setItems="@{ad.multimedias}" />
+            app:setItems="@{viewModel.ad.multimedias}" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutIndicator"
@@ -77,6 +77,7 @@
             android:paddingVertical="4dp"
             app:srcCompat="@drawable/ic_empty_favorite"
             app:tint="@color/colorAccent"
+            android:onClick="@{() -> viewModel.addToFavourites()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/imageViewMessage"
             app:layout_constraintTop_toBottomOf="@id/guidelineOptions"
