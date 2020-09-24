@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class AdLocalEntity(
     @PrimaryKey val id: String,
-    val title: String?,
     val thumbnail: String?,
+    val title: String?,
     val price: Double?,
     val detailUrl: String?
 )

@@ -18,4 +18,7 @@ class AdDataSource(
     fun addFavouriteAd(adLocalEntity: AdLocalEntity) =
         favouriteAdApi.addFavouriteAd(adLocalEntity)
 
+    fun removeFavouriteAd(adLocalEntity: AdLocalEntity) =
+        favouriteAdApi.removeFavouriteAd(adLocalEntity)
+
 }

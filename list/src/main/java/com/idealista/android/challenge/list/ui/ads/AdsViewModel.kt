@@ -9,10 +9,7 @@ import com.idealista.android.challenge.core.api.model.CommonError
 import com.idealista.android.challenge.core.wrench.usecase.UseCase
 import com.idealista.android.challenge.list.AdAssembler
 import com.idealista.android.challenge.list.ListAssembler
-import com.idealista.android.challenge.list.domain.AdDetail
-import com.idealista.android.challenge.list.domain.adDetail
-import com.idealista.android.challenge.list.domain.addFavouriteAd
-import com.idealista.android.challenge.list.domain.checkIfIsFavouriteAd
+import com.idealista.android.challenge.list.domain.*
 import com.idealista.android.challenge.list.ui.ads.model.AdDetailModel
 import com.idealista.android.challenge.list.ui.ads.model.toDomain
 import kotlinx.coroutines.GlobalScope
@@ -56,14 +53,13 @@ class AdsViewModel: ViewModel() {
             }.run(CoreAssembler.executor)
     }
 
-    fun addToFavourites() {
+    fun manageFavourite(isFavourite: Boolean) {
         GlobalScope.launch {
-            addFavouriteAd(
-                AdAssembler.adRepository,
-                (ad.value as AdDetailModel).toDatabaseEntity(adUrl)
-            )
-
-            _isFavouriteAd.postValue(true)
+            if (isFavourite) {
+                removeFromFavourites()
+            } else {
+                insertIntoFavourites()
+            }
         }
     }
 
@@ -73,6 +69,24 @@ class AdsViewModel: ViewModel() {
             val isFavourite = checkIfIsFavouriteAd(AdAssembler.adRepository, adId)
             _isFavouriteAd.postValue(isFavourite)
         }
+    }
+
+    private fun insertIntoFavourites() {
+        addFavouriteAd(
+            AdAssembler.adRepository,
+            (ad.value as AdDetailModel).toDatabaseEntity(adUrl)
+        )
+
+        _isFavouriteAd.postValue(true)
+    }
+
+    private fun removeFromFavourites() {
+        removeFavouriteAd(
+            AdAssembler.adRepository,
+            (ad.value as AdDetailModel).toDatabaseEntity(adUrl)
+        )
+
+        _isFavouriteAd.postValue(false)
     }
 
 }

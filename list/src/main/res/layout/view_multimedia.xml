@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -78,11 +79,12 @@
             app:isFavourite="@{viewModel.isFavouriteAd}"
             app:tint="@color/colorAccent"
             android:background="?selectableItemBackground"
-            android:onClick="@{() -> viewModel.addToFavourites()}"
+            android:onClick="@{() -> viewModel.manageFavourite(viewModel.isFavouriteAd)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/imageViewMessage"
             app:layout_constraintTop_toBottomOf="@id/guidelineOptions"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:srcCompat="@drawable/ic_empty_favorite"/>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageViewMessage"

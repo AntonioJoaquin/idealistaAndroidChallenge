@@ -1,9 +1,6 @@
 package com.idealista.android.challenge.core.database
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface FavouriteAdDao {
@@ -16,5 +13,8 @@ interface FavouriteAdDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addFavouriteAd(favoriteAd: AdLocalEntity)
+
+    @Delete()
+    fun removeFavouriteAd(favoriteAd: AdLocalEntity)
 
 }

@@ -16,4 +16,7 @@ class AdRepository(
     fun addFavouriteAd(adLocalEntity: AdLocalEntity) =
         dataSource.addFavouriteAd(adLocalEntity)
 
+    fun removeFavouriteAd(adLocalEntity: AdLocalEntity) =
+        dataSource.removeFavouriteAd(adLocalEntity)
+
 }

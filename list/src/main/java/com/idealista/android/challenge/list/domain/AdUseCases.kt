@@ -13,3 +13,6 @@ fun checkIfIsFavouriteAd(adRepository: AdRepository, adId: String): Boolean =
 
 fun addFavouriteAd(adRepository: AdRepository, adLocalEntity: AdLocalEntity) =
     adRepository.addFavouriteAd(adLocalEntity)
+
+fun removeFavouriteAd(adRepository: AdRepository, adLocalEntity: AdLocalEntity) =
+    adRepository.removeFavouriteAd(adLocalEntity)

@@ -14,4 +14,7 @@ class FavouriteAdApi(
     fun addFavouriteAd(adLocalEntity: AdLocalEntity) =
         applicationDatabase.favouriteAdDao().addFavouriteAd(adLocalEntity)
 
+    fun removeFavouriteAd(adLocalEntity: AdLocalEntity) =
+        applicationDatabase.favouriteAdDao().removeFavouriteAd(adLocalEntity)
+
 }
