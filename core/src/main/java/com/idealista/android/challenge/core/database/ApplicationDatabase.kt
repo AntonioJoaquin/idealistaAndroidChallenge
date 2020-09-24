@@ -4,9 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.idealista.android.challenge.core.database.tables.AdTable
 
-@Database(entities = [AdTable::class], version = 1)
+@Database(entities = [AdLocalEntity::class], version = 1)
 abstract class ApplicationDatabase: RoomDatabase() {
 
     companion object {

@@ -2,7 +2,7 @@ package com.idealista.android.challenge.list.ui.list.model
 
 import com.idealista.android.challenge.core.CoreAssembler
 import com.idealista.android.challenge.core.R
-import com.idealista.android.challenge.core.database.tables.AdTable
+import com.idealista.android.challenge.core.database.AdLocalEntity
 import com.idealista.android.challenge.core.model.Operation
 import com.idealista.android.challenge.core.model.Typology
 import com.idealista.android.challenge.core.model.string
@@ -28,9 +28,9 @@ fun Ad.toModel() =
         )
     )
 
-fun AdTable.toModel() =
+fun AdLocalEntity.toModel() =
     AdModel(
-        propertyCode,
+        id,
         detailUrl ?: "",
         thumbnail ?: "",
         formatPrice(price ?: 0.0),

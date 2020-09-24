@@ -1,7 +1,7 @@
 package com.idealista.android.challenge.list.ui.ads.model
 
 import com.idealista.android.challenge.core.CoreAssembler
-import com.idealista.android.challenge.core.database.tables.AdTable
+import com.idealista.android.challenge.core.database.AdLocalEntity
 import com.idealista.android.challenge.core.model.Operation
 import com.idealista.android.challenge.core.model.Typology
 import com.idealista.android.challenge.core.model.string
@@ -18,7 +18,7 @@ data class AdDetailModel(
 ) {
 
     fun toDatabaseEntity(adUrl: String) =
-        AdTable(
+        AdLocalEntity(
             id,
             multimedias[0],
             title,

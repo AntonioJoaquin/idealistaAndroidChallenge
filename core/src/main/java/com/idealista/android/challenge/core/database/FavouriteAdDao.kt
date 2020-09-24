@@ -4,15 +4,17 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.idealista.android.challenge.core.database.tables.AdTable
 
 @Dao
 interface FavouriteAdDao {
 
-    @Query("SELECT * FROM adtable")
-    fun listFavouriteAds(): List<AdTable>
+    @Query("SELECT * FROM adlocalentity")
+    fun listFavouriteAds(): List<AdLocalEntity>
+
+    @Query("SELECT EXISTS( SELECT * FROM adlocalentity WHERE id = :adId)")
+    fun isFavouriteAd(adId: String): Boolean
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun addFavouriteAd(favoriteAd: AdTable)
+    fun addFavouriteAd(favoriteAd: AdLocalEntity)
 
 }

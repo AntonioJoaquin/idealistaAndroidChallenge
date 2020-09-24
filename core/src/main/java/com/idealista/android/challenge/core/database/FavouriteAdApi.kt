@@ -1,15 +1,17 @@
 package com.idealista.android.challenge.core.database
 
-import com.idealista.android.challenge.core.database.tables.AdTable
 
 class FavouriteAdApi(
     private val applicationDatabase: ApplicationDatabase
 ) {
 
-    fun listFavouriteAds(): List<AdTable> =
+    fun listFavouriteAds(): List<AdLocalEntity> =
         applicationDatabase.favouriteAdDao().listFavouriteAds()
 
-    fun addFavouriteAd(adTable: AdTable) =
-        applicationDatabase.favouriteAdDao().addFavouriteAd(adTable)
+    fun isFavouriteAd(adId: String): Boolean =
+        applicationDatabase.favouriteAdDao().isFavouriteAd(adId)
+
+    fun addFavouriteAd(adLocalEntity: AdLocalEntity) =
+        applicationDatabase.favouriteAdDao().addFavouriteAd(adLocalEntity)
 
 }
