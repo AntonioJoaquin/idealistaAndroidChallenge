@@ -31,10 +31,10 @@ fun Ad.toModel() =
 fun AdTable.toModel() =
     AdModel(
         propertyCode,
-        "",
-        "",
+        detailUrl ?: "",
+        thumbnail ?: "",
         formatPrice(price ?: 0.0),
-        "")
+        title ?: "")
 
 private fun formatPrice(price: Double) = "$price €"
 private fun formatTitle(typology: Typology, operation: Operation) =

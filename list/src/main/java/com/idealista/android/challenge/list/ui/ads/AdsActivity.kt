@@ -26,13 +26,13 @@ class AdsActivity : AppCompatActivity() {
 
     private val adapter = ImageSliderAdapter()
 
-    private lateinit var adPath: String
+    private lateinit var adUrl: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-         adPath = intent.getStringExtra("URL") ?: ""
+         adUrl = intent.getStringExtra("URL") ?: ""
 
         init()
     }
@@ -41,7 +41,7 @@ class AdsActivity : AppCompatActivity() {
     private fun init() {
         initView()
 
-        viewModel.getAdDetails(adPath)
+        viewModel.init(adUrl)
     }
 
     private fun initView() {

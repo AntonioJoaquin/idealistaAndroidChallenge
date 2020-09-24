@@ -23,10 +23,20 @@ class AdsViewModel: ViewModel() {
     val ad: LiveData<AdDetailModel>
         get() = _ad
 
+    private lateinit var adUrl: String
 
-    fun getAdDetails(adPath: String) {
+
+    fun init(adUrl: String) {
+        this.adUrl = adUrl
+
+        val urlPath = adUrl.substring(adUrl.lastIndexOf('/') + 1)
+        getAdDetails(urlPath)
+    }
+
+
+    private fun getAdDetails(urlPath: String) {
         UseCase<CommonError, AdDetail>()
-            .bg(adDetail(ListAssembler.listRepository, adPath))
+            .bg(adDetail(ListAssembler.listRepository, urlPath))
             .map { it.toDomain() }
             .ui {
                 it.fold(
@@ -44,7 +54,7 @@ class AdsViewModel: ViewModel() {
         GlobalScope.launch {
             addFavouriteAd(
                 AdAssembler.adRepository,
-                (ad.value as AdDetailModel).toDatabaseEntity()
+                (ad.value as AdDetailModel).toDatabaseEntity(adUrl)
             )
         }
     }

@@ -17,10 +17,13 @@ data class AdDetailModel(
     val multimedias: List<String>
 ) {
 
-    fun toDatabaseEntity() =
+    fun toDatabaseEntity(adUrl: String) =
         AdTable(
             id,
-            price.split(" ")[0].toDouble()
+            multimedias[0],
+            title,
+            price.split(" ")[0].toDouble(),
+            adUrl
         )
 
 }

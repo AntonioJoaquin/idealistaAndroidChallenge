@@ -6,5 +6,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class AdTable(
     @PrimaryKey val propertyCode: String,
-    val price: Double?
+    val thumbnail: String?,
+    val title: String?,
+    val price: Double?,
+    val detailUrl: String?
 )
