@@ -8,6 +8,10 @@
         <variable
             name="ad"
             type="com.idealista.android.challenge.list.ui.list.model.AdModel" />
+
+        <variable
+            name="listener"
+            type="com.idealista.android.challenge.list.ui.favoriteslist.adapter.AdItemListListener" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -15,7 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:orientation="vertical"
-        android:background="?selectableItemBackground">
+        android:background="?selectableItemBackground"
+        android:onClick="@{() -> listener.onClick(ad)}">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

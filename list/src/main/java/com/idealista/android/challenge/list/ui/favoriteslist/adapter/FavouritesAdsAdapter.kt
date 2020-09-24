@@ -9,9 +9,9 @@ import com.idealista.android.challenge.list.databinding.ItemAdBinding
 import com.idealista.android.challenge.list.ui.ads.common.extensions.bindingInflate
 import com.idealista.android.challenge.list.ui.list.model.AdModel
 
-class FavouritesAdsAdapter: ListAdapter<AdModel, FavouritesAdsAdapter.ViewHolder>(
-    Companion
-) {
+class FavouritesAdsAdapter(
+    private val listener: AdItemListListener
+): ListAdapter<AdModel, FavouritesAdsAdapter.ViewHolder>(Companion) {
 
     companion object: DiffUtil.ItemCallback<AdModel>() {
         override fun areItemsTheSame(oldItem: AdModel, newItem: AdModel): Boolean =
@@ -24,31 +24,29 @@ class FavouritesAdsAdapter: ListAdapter<AdModel, FavouritesAdsAdapter.ViewHolder
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        ViewHolder.from(
-            parent
-        )
+        ViewHolder.from(parent, listener)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) =
         holder.bind(getItem(position))
 
 
     class ViewHolder private constructor(
-        private val binding: ItemAdBinding
+        private val binding: ItemAdBinding,
+        private val listener: AdItemListListener
     ): RecyclerView.ViewHolder(binding.root) {
 
         companion object {
-            fun from(parent: ViewGroup): ViewHolder {
+            fun from(parent: ViewGroup, listener: AdItemListListener): ViewHolder {
                 val binding = parent.bindingInflate<ItemAdBinding>(R.layout.item_ad)
 
-                return ViewHolder(
-                    binding
-                )
+                return ViewHolder(binding, listener)
             }
         }
 
 
         fun bind(ad: AdModel) {
             binding.ad = ad
+            binding.listener = listener
             binding.executePendingBindings()
         }
 
