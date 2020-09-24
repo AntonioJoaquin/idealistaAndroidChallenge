@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui.favoriteslist.adapter
+package com.idealista.android.challenge.list.ui.common.listAdapter
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +16,7 @@ fun RecyclerView.bindAdapter(adapter: RecyclerView.Adapter<*>) {
 
 @BindingAdapter("setItems")
 fun RecyclerView.setItems(items: List<AdModel>?) {
-    (adapter as? FavouritesAdsAdapter)?.submitList(items ?: emptyList())
+    (adapter as? AdListAdapter)?.submitList(items ?: emptyList())
 }
 
 // endregion RecyclerView

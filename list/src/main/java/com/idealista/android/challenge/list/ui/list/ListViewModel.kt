@@ -1,15 +1,23 @@
 package com.idealista.android.challenge.list.ui.list
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.idealista.android.challenge.core.CoreAssembler
 import com.idealista.android.challenge.core.api.model.CommonError
 import com.idealista.android.challenge.core.wrench.usecase.UseCase
 import com.idealista.android.challenge.list.ListAssembler
 import com.idealista.android.challenge.list.domain.List
 import com.idealista.android.challenge.list.domain.list
-import com.idealista.android.challenge.list.ui.list.model.AdModel
+import com.idealista.android.challenge.list.ui.list.model.ListModel
 import com.idealista.android.challenge.list.ui.list.model.toModel
 
-class ListPresenter(private val view: ListView) {
+class ListViewModel: ViewModel() {
+
+    private val _listModel = MutableLiveData<ListModel>()
+    val listModel: LiveData<ListModel>
+        get() = _listModel
+
 
     fun onListNeeded() {
         UseCase<CommonError, List>()
@@ -21,14 +29,10 @@ class ListPresenter(private val view: ListView) {
 
                     },
                     {
-                        view.render(it)
+                        _listModel.postValue(it)
                     }
                 )
             }.run(CoreAssembler.executor)
-    }
-
-    fun onAdClicked(ad: AdModel) {
-        view.goToAdDetail(ad)
     }
 
 }

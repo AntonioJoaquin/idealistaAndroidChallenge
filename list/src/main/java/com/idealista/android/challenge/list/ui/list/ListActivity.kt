@@ -6,33 +6,39 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.idealista.android.challenge.core.Addressable
 import com.idealista.android.challenge.core.intentTo
-import com.idealista.android.challenge.list.ListAssembler
 import com.idealista.android.challenge.list.R
+import com.idealista.android.challenge.list.databinding.ActivityListBinding
+import com.idealista.android.challenge.list.ui.ViewModelFactory
+import com.idealista.android.challenge.list.ui.common.listAdapter.AdItemListListener
+import com.idealista.android.challenge.list.ui.common.listAdapter.AdListAdapter
 import com.idealista.android.challenge.list.ui.favoriteslist.FavouritesAdsActivity
 import com.idealista.android.challenge.list.ui.list.model.AdModel
-import com.idealista.android.challenge.list.ui.list.model.ListModel
 
-class ListActivity : AppCompatActivity(),
-    ListView {
+class ListActivity : AppCompatActivity() {
 
-    private lateinit var listAdapter: ListAdapter
+    private val viewModel by lazy {
+        ViewModelProvider(this@ListActivity, ViewModelFactory()).get(ListViewModel::class.java)
+    }
+    private val adapter = AdListAdapter(
+        AdItemListListener { goToAdDetail(it) }
+    )
+
+    private var binding: ActivityListBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list)
-        ListAssembler.presenter =
-            ListPresenter(this)
-        listAdapter = ListAdapter()
-        findViewById<RecyclerView>(R.id.recycler).apply {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@ListActivity)
-            adapter = listAdapter
+        binding = DataBindingUtil.setContentView(this@ListActivity, R.layout.activity_list)
+        binding?.let {
+            it.lifecycleOwner = this@ListActivity
+            it.viewModel = viewModel
+            it.adapter = adapter
         }
-        ListAssembler.presenter.onListNeeded()
+
+        init()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -54,17 +60,11 @@ class ListActivity : AppCompatActivity(),
     }
 
 
-    override fun render(list: ListModel) {
-        listAdapter.set(list)
-        listAdapter.listener(object :
-            ListAdapter.AdListener {
-            override fun onAdClicked(ad: AdModel) {
-                ListAssembler.presenter.onAdClicked(ad)
-            }
-        })
+    private fun init() {
+        viewModel.onListNeeded()
     }
 
-    override fun goToAdDetail(ad: AdModel) {
+    private fun goToAdDetail(ad: AdModel) {
         val intent = Addressable.Activity.Ads.intentTo()
         intent.putExtra("URL", ad.detailUrl)
         startActivity(intent)

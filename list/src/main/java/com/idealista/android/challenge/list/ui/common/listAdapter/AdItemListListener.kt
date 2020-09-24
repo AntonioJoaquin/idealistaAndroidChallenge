@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui.favoriteslist.adapter
+package com.idealista.android.challenge.list.ui.common.listAdapter
 
 import com.idealista.android.challenge.list.ui.list.model.AdModel
 
