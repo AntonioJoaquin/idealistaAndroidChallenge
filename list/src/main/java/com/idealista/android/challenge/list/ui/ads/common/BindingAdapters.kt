@@ -1,7 +1,9 @@
-package com.idealista.android.challenge.list.ui.ads
+package com.idealista.android.challenge.list.ui.ads.common
 
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.idealista.android.challenge.list.R
 
@@ -16,6 +18,17 @@ fun TextView.setExpandTextVisibility(spannableText: String?) {
         } else {
             text = ""
             visibility = View.GONE
+        }
+    }
+}
+
+@BindingAdapter("isFavourite")
+fun AppCompatImageView.setFavouriteIcon(isFavourite: Boolean?) {
+    isFavourite?.let {
+        if (it) {
+            setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_full_favorite))
+        } else {
+            setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_empty_favorite))
         }
     }
 }

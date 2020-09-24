@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.idealista.android.challenge.list.R
 import com.idealista.android.challenge.list.databinding.ActivityAdsBinding
 import com.idealista.android.challenge.list.ui.ViewModelFactory
+import com.idealista.android.challenge.list.ui.ads.common.DEFAULT_LINES_SPANNABLE_TEXT
+import com.idealista.android.challenge.list.ui.ads.common.extensions.clickForSpannableText
 import com.idealista.android.challenge.list.ui.ads.multimedias.ImageSliderAdapter
 
 class AdsActivity : AppCompatActivity() {
@@ -24,13 +26,13 @@ class AdsActivity : AppCompatActivity() {
 
     private val adapter = ImageSliderAdapter()
 
-    private lateinit var adPath: String
+    private lateinit var adUrl: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-         adPath = intent.getStringExtra("URL") ?: ""
+         adUrl = intent.getStringExtra("URL") ?: ""
 
         init()
     }
@@ -39,13 +41,14 @@ class AdsActivity : AppCompatActivity() {
     private fun init() {
         initView()
 
-        viewModel.getAdDetails(adPath)
+        viewModel.init(adUrl)
     }
 
     private fun initView() {
         binding.viewMultimedia.tabLayoutIndicator.setupWithViewPager(binding.viewMultimedia.viewPagerMultimedias)
 
-        binding.textViewAdDescription.maxLines = DEFAULT_LINES_SPANNABLE_TEXT
+        binding.textViewAdDescription.maxLines =
+            DEFAULT_LINES_SPANNABLE_TEXT
 
         binding.textViewSeeAllDescription.clickForSpannableText(binding.textViewAdDescription)
     }

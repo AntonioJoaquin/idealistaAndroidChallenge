@@ -41,7 +41,7 @@
                 android:layout_height="0dp"
                 layout="@layout/view_multimedia"
                 app:adapter="@{adapter}"
-                app:ad="@{viewModel.ad}"
+                app:viewModel="@{viewModel}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/guidelineMultimedia"
                 app:layout_constraintStart_toStartOf="parent"

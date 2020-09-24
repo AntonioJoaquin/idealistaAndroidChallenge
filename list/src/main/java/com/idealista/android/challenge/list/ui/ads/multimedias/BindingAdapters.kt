@@ -18,10 +18,3 @@ fun ViewPager.setItems(items: List<String>?) {
         it.items = items ?: emptyList()
     }
 }
-
-@BindingAdapter("setPath")
-fun AppCompatImageView.setPath(path: String?) {
-    if (!path.isNullOrBlank()) {
-        Picasso.with(context).load(path).into(this)
-    }
-}

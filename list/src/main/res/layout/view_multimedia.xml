@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -9,8 +10,8 @@
             type="com.idealista.android.challenge.list.ui.ads.multimedias.ImageSliderAdapter" />
 
         <variable
-            name="ad"
-            type="com.idealista.android.challenge.list.ui.ads.model.AdDetailModel" />
+            name="viewModel"
+            type="com.idealista.android.challenge.list.ui.ads.AdsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,7 +45,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:setItems="@{ad.multimedias}" />
+            app:setItems="@{viewModel.ad.multimedias}" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutIndicator"
@@ -75,12 +76,15 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:paddingVertical="4dp"
-            app:srcCompat="@drawable/ic_empty_favorite"
+            app:isFavourite="@{viewModel.isFavouriteAd}"
             app:tint="@color/colorAccent"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> viewModel.manageFavourite(viewModel.isFavouriteAd)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/imageViewMessage"
             app:layout_constraintTop_toBottomOf="@id/guidelineOptions"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:srcCompat="@drawable/ic_empty_favorite"/>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageViewMessage"
@@ -89,6 +93,7 @@
             android:paddingVertical="4dp"
             android:src="@drawable/ic_message"
             app:tint="@color/colorAccent"
+            android:background="?selectableItemBackground"
             app:layout_constraintStart_toEndOf="@id/imageViewFavorite"
             app:layout_constraintEnd_toStartOf="@id/imageViewCall"
             app:layout_constraintTop_toBottomOf="@id/guidelineOptions"
@@ -101,6 +106,7 @@
             android:paddingVertical="4dp"
             app:srcCompat="@drawable/ic_call"
             app:tint="@color/colorAccent"
+            android:background="?selectableItemBackground"
             app:layout_constraintStart_toEndOf="@id/imageViewMessage"
             app:layout_constraintEnd_toStartOf="@id/imageViewShare"
             app:layout_constraintTop_toBottomOf="@id/guidelineOptions"
@@ -113,6 +119,7 @@
             android:paddingVertical="4dp"
             app:srcCompat="@drawable/ic_share"
             app:tint="@color/colorAccent"
+            android:background="?selectableItemBackground"
             app:layout_constraintStart_toEndOf="@id/imageViewCall"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/guidelineOptions"

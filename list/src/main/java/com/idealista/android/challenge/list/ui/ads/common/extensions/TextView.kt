@@ -1,7 +1,8 @@
-package com.idealista.android.challenge.list.ui.ads
+package com.idealista.android.challenge.list.ui.ads.common.extensions
 
 import android.widget.TextView
 import com.idealista.android.challenge.list.R
+import com.idealista.android.challenge.list.ui.ads.common.DEFAULT_LINES_SPANNABLE_TEXT
 
 fun TextView.clickForSpannableText(spannableText: TextView) {
     setOnClickListener {
@@ -9,7 +10,8 @@ fun TextView.clickForSpannableText(spannableText: TextView) {
             spannableText.maxLines = Int.MAX_VALUE
             text = context.resources.getString(R.string.ads_hide_all_description)
         } else {
-            spannableText.maxLines = DEFAULT_LINES_SPANNABLE_TEXT
+            spannableText.maxLines =
+                DEFAULT_LINES_SPANNABLE_TEXT
             text = context.resources.getString(R.string.ads_show_all_description)
         }
     }

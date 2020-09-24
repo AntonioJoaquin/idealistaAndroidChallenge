@@ -12,9 +12,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.ads.AdsActivity"
+            android:theme="@style/AppTheme.Base" />
+        <activity
+            android:name=".ui.favoriteslist.FavouritesAdsActivity"
             android:theme="@style/AppTheme.Base" />
     </application>
 

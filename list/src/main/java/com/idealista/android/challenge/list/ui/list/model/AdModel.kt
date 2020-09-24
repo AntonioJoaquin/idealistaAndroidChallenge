@@ -2,6 +2,7 @@ package com.idealista.android.challenge.list.ui.list.model
 
 import com.idealista.android.challenge.core.CoreAssembler
 import com.idealista.android.challenge.core.R
+import com.idealista.android.challenge.core.database.AdLocalEntity
 import com.idealista.android.challenge.core.model.Operation
 import com.idealista.android.challenge.core.model.Typology
 import com.idealista.android.challenge.core.model.string
@@ -26,6 +27,14 @@ fun Ad.toModel() =
             operation
         )
     )
+
+fun AdLocalEntity.toModel() =
+    AdModel(
+        id,
+        detailUrl ?: "",
+        thumbnail ?: "",
+        formatPrice(price ?: 0.0),
+        title ?: "")
 
 private fun formatPrice(price: Double) = "$price €"
 private fun formatTitle(typology: Typology, operation: Operation) =
