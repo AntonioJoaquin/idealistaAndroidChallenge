@@ -12,7 +12,7 @@
 
         <variable
             name="adapter"
-            type="com.idealista.android.challenge.list.ui.favoriteslist.adapter.FavouritesAdsAdapter" />
+            type="com.idealista.android.challenge.list.ui.common.listAdapter.AdListAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

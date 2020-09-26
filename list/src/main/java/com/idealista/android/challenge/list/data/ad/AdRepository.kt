@@ -1,13 +1,13 @@
-package com.idealista.android.challenge.list.data
+package com.idealista.android.challenge.list.data.ad
 
 import com.idealista.android.challenge.core.database.AdLocalEntity
-import com.idealista.android.challenge.list.ui.list.model.AdModel
+import com.idealista.android.challenge.list.ui.common.model.AdItemListModel
 
 class AdRepository(
     private val dataSource: AdDataSource
 ) {
 
-    fun listFavouriteAds(): List<AdModel> =
+    fun listFavouriteAds(): List<AdItemListModel> =
         dataSource.listFavouriteAds()
 
     fun isFavouriteAd(adId: String) =

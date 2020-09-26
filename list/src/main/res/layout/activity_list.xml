@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/recycler"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbars="vertical"
-    android:background="@color/grey10"
-    tools:context=".ui.list.ListActivity" />
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.idealista.android.challenge.list.ui.list.ListViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.idealista.android.challenge.list.ui.common.listAdapter.AdListAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.favoriteslist.FavouritesAdsActivity">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewAds"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:bindAdapter="@{adapter}"
+            app:setItems="@{viewModel.listModel.ads}"
+            android:scrollbars="vertical"
+            android:background="@color/grey10"
+            tools:context=".ui.list.ListActivity" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

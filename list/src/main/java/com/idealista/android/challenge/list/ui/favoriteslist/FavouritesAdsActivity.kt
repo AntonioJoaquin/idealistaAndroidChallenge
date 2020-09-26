@@ -9,16 +9,16 @@ import com.idealista.android.challenge.core.intentTo
 import com.idealista.android.challenge.list.R
 import com.idealista.android.challenge.list.databinding.ActivityFavouritesAdsBinding
 import com.idealista.android.challenge.list.ui.ViewModelFactory
-import com.idealista.android.challenge.list.ui.favoriteslist.adapter.AdItemListListener
-import com.idealista.android.challenge.list.ui.favoriteslist.adapter.FavouritesAdsAdapter
-import com.idealista.android.challenge.list.ui.list.model.AdModel
+import com.idealista.android.challenge.list.ui.common.listAdapter.AdItemListListener
+import com.idealista.android.challenge.list.ui.common.listAdapter.AdListAdapter
+import com.idealista.android.challenge.list.ui.common.model.AdItemListModel
 
 class FavouritesAdsActivity : AppCompatActivity() {
 
     private val viewModel by lazy {
         ViewModelProvider(this@FavouritesAdsActivity, ViewModelFactory()).get(FavouritesAdsViewModel::class.java)
     }
-    private val adapter = FavouritesAdsAdapter(
+    private val adapter = AdListAdapter(
         AdItemListListener { goToAdDetail(it) }
     )
 
@@ -42,7 +42,7 @@ class FavouritesAdsActivity : AppCompatActivity() {
         viewModel.listFavouritesAds()
     }
 
-    private fun goToAdDetail(ad: AdModel) {
+    private fun goToAdDetail(ad: AdItemListModel) {
         val intent = Addressable.Activity.Ads.intentTo()
         intent.putExtra("URL", ad.detailUrl)
         startActivity(intent)

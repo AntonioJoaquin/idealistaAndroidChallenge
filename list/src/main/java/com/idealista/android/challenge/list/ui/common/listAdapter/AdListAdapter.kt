@@ -1,23 +1,23 @@
-package com.idealista.android.challenge.list.ui.favoriteslist.adapter
+package com.idealista.android.challenge.list.ui.common.listAdapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.idealista.android.challenge.list.R
-import com.idealista.android.challenge.list.databinding.ItemAdBinding
+import com.idealista.android.challenge.list.databinding.ViewAdBinding
 import com.idealista.android.challenge.list.ui.ads.common.extensions.bindingInflate
-import com.idealista.android.challenge.list.ui.list.model.AdModel
+import com.idealista.android.challenge.list.ui.common.model.AdItemListModel
 
-class FavouritesAdsAdapter(
+class AdListAdapter(
     private val listener: AdItemListListener
-): ListAdapter<AdModel, FavouritesAdsAdapter.ViewHolder>(Companion) {
+): ListAdapter<AdItemListModel, AdListAdapter.ViewHolder>(Companion) {
 
-    companion object: DiffUtil.ItemCallback<AdModel>() {
-        override fun areItemsTheSame(oldItem: AdModel, newItem: AdModel): Boolean =
+    companion object: DiffUtil.ItemCallback<AdItemListModel>() {
+        override fun areItemsTheSame(oldItem: AdItemListModel, newItem: AdItemListModel): Boolean =
             oldItem === newItem
 
-        override fun areContentsTheSame(oldItem: AdModel, newItem: AdModel): Boolean =
+        override fun areContentsTheSame(oldItem: AdItemListModel, newItem: AdItemListModel): Boolean =
             oldItem.id == newItem.id
 
     }
@@ -31,20 +31,20 @@ class FavouritesAdsAdapter(
 
 
     class ViewHolder private constructor(
-        private val binding: ItemAdBinding,
+        private val binding: ViewAdBinding,
         private val listener: AdItemListListener
     ): RecyclerView.ViewHolder(binding.root) {
 
         companion object {
             fun from(parent: ViewGroup, listener: AdItemListListener): ViewHolder {
-                val binding = parent.bindingInflate<ItemAdBinding>(R.layout.item_ad)
+                val binding = parent.bindingInflate<ViewAdBinding>(R.layout.view_ad)
 
                 return ViewHolder(binding, listener)
             }
         }
 
 
-        fun bind(ad: AdModel) {
+        fun bind(ad: AdItemListModel) {
             binding.ad = ad
             binding.listener = listener
             binding.executePendingBindings()

@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.domain
+package com.idealista.android.challenge.list.domain.model
 
 import com.idealista.android.challenge.core.model.entity.ImageEntity
 

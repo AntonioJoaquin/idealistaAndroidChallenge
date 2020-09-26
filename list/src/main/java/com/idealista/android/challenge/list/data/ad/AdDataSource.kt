@@ -1,15 +1,15 @@
-package com.idealista.android.challenge.list.data
+package com.idealista.android.challenge.list.data.ad
 
 import com.idealista.android.challenge.core.database.AdLocalEntity
 import com.idealista.android.challenge.core.database.FavouriteAdApi
-import com.idealista.android.challenge.list.ui.list.model.AdModel
-import com.idealista.android.challenge.list.ui.list.model.toModel
+import com.idealista.android.challenge.list.ui.common.model.AdItemListModel
+import com.idealista.android.challenge.list.ui.common.model.toModel
 
 class AdDataSource(
     private val favouriteAdApi: FavouriteAdApi
 ) {
 
-    fun listFavouriteAds(): List<AdModel> =
+    fun listFavouriteAds(): List<AdItemListModel> =
         favouriteAdApi.listFavouriteAds().map { it.toModel() }
 
     fun isFavouriteAd(adId: String): Boolean =
