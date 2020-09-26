@@ -2,7 +2,9 @@ package com.idealista.android.challenge.list.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import com.google.android.material.tabs.TabLayoutMediator
 import com.idealista.android.challenge.list.R
 import com.idealista.android.challenge.list.databinding.ActivityMainBinding
 import com.idealista.android.challenge.list.ui.favoriteslist.FavouritesAdsFragment
@@ -14,22 +16,40 @@ class MainActivity : AppCompatActivity() {
         MainTabsAdapter(this)
     }
 
-    private var binding: ActivityMainBinding? = null
+    private lateinit var binding: ActivityMainBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this@MainActivity, R.layout.activity_main)
         binding.let {
-            it?.lifecycleOwner = this@MainActivity
+            it.lifecycleOwner = this@MainActivity
         }
 
-        initAdapter()
+        init()
     }
 
 
-    private fun initAdapter() {
-        binding?.viewPager2?.adapter = mainTabsAdapter
+    private fun init() {
+        initViewPager()
+        initTabLayout()
+    }
+
+    private fun initViewPager() {
+        binding.viewPager2.adapter = mainTabsAdapter
+    }
+
+    private fun initTabLayout() {
+        TabLayoutMediator(binding.tabLayout, binding.viewPager2) {
+            tab, position ->
+            run {
+                if (position == 0) {
+                    tab.text = "Home"
+                } else {
+                    tab.text = "Favourites"
+                }
+            }
+        }.attach()
     }
 
 }
