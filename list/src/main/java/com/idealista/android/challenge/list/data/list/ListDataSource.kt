@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.data
+package com.idealista.android.challenge.list.data.list
 
 import com.idealista.android.challenge.core.api.ListApi
 import com.idealista.android.challenge.core.api.model.CommonError

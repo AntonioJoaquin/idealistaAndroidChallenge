@@ -7,7 +7,7 @@
 
         <variable
             name="ad"
-            type="com.idealista.android.challenge.list.ui.list.model.AdModel" />
+            type="com.idealista.android.challenge.list.ui.common.model.AdItemListModel" />
 
         <variable
             name="listener"

@@ -7,17 +7,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.idealista.android.challenge.list.R
 import com.idealista.android.challenge.list.databinding.ViewAdBinding
 import com.idealista.android.challenge.list.ui.ads.common.extensions.bindingInflate
-import com.idealista.android.challenge.list.ui.list.model.AdModel
+import com.idealista.android.challenge.list.ui.common.model.AdItemListModel
 
 class AdListAdapter(
     private val listener: AdItemListListener
-): ListAdapter<AdModel, AdListAdapter.ViewHolder>(Companion) {
+): ListAdapter<AdItemListModel, AdListAdapter.ViewHolder>(Companion) {
 
-    companion object: DiffUtil.ItemCallback<AdModel>() {
-        override fun areItemsTheSame(oldItem: AdModel, newItem: AdModel): Boolean =
+    companion object: DiffUtil.ItemCallback<AdItemListModel>() {
+        override fun areItemsTheSame(oldItem: AdItemListModel, newItem: AdItemListModel): Boolean =
             oldItem === newItem
 
-        override fun areContentsTheSame(oldItem: AdModel, newItem: AdModel): Boolean =
+        override fun areContentsTheSame(oldItem: AdItemListModel, newItem: AdItemListModel): Boolean =
             oldItem.id == newItem.id
 
     }
@@ -44,7 +44,7 @@ class AdListAdapter(
         }
 
 
-        fun bind(ad: AdModel) {
+        fun bind(ad: AdItemListModel) {
             binding.ad = ad
             binding.listener = listener
             binding.executePendingBindings()

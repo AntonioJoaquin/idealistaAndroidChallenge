@@ -1,11 +1,10 @@
-package com.idealista.android.challenge.list.domain
+package com.idealista.android.challenge.list.domain.usecase
 
 import com.idealista.android.challenge.core.database.AdLocalEntity
-import com.idealista.android.challenge.list.data.AdRepository
-import com.idealista.android.challenge.list.ui.list.model.AdModel
-import kotlin.collections.List
+import com.idealista.android.challenge.list.data.ad.AdRepository
+import com.idealista.android.challenge.list.ui.common.model.AdItemListModel
 
-fun listFavouriteAds(adRepository: AdRepository): List<AdModel> =
+fun listFavouriteAds(adRepository: AdRepository): List<AdItemListModel> =
     adRepository.listFavouriteAds()
 
 fun checkIfIsFavouriteAd(adRepository: AdRepository, adId: String): Boolean =

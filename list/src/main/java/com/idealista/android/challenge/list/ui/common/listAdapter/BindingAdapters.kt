@@ -2,7 +2,7 @@ package com.idealista.android.challenge.list.ui.common.listAdapter
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.idealista.android.challenge.list.ui.list.model.AdModel
+import com.idealista.android.challenge.list.ui.common.model.AdItemListModel
 
 // region RecyclerView
 
@@ -15,7 +15,7 @@ fun RecyclerView.bindAdapter(adapter: RecyclerView.Adapter<*>) {
 }
 
 @BindingAdapter("setItems")
-fun RecyclerView.setItems(items: List<AdModel>?) {
+fun RecyclerView.setItems(items: List<AdItemListModel>?) {
     (adapter as? AdListAdapter)?.submitList(items ?: emptyList())
 }
 

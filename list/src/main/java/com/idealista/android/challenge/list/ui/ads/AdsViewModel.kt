@@ -9,9 +9,13 @@ import com.idealista.android.challenge.core.api.model.CommonError
 import com.idealista.android.challenge.core.wrench.usecase.UseCase
 import com.idealista.android.challenge.list.AdAssembler
 import com.idealista.android.challenge.list.ListAssembler
-import com.idealista.android.challenge.list.domain.*
-import com.idealista.android.challenge.list.ui.ads.model.AdDetailModel
-import com.idealista.android.challenge.list.ui.ads.model.toDomain
+import com.idealista.android.challenge.list.domain.model.AdDetail
+import com.idealista.android.challenge.list.domain.usecase.adDetail
+import com.idealista.android.challenge.list.domain.usecase.addFavouriteAd
+import com.idealista.android.challenge.list.domain.usecase.checkIfIsFavouriteAd
+import com.idealista.android.challenge.list.domain.usecase.removeFavouriteAd
+import com.idealista.android.challenge.list.ui.common.model.AdDetailModel
+import com.idealista.android.challenge.list.ui.common.model.toDomain
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -38,7 +42,12 @@ class AdsViewModel: ViewModel() {
 
     private fun getAdDetails(urlPath: String) {
         UseCase<CommonError, AdDetail>()
-            .bg(adDetail(ListAssembler.listRepository, urlPath))
+            .bg(
+                adDetail(
+                    ListAssembler.listRepository,
+                    urlPath
+                )
+            )
             .map { it.toDomain() }
             .ui {
                 it.fold(
@@ -66,7 +75,11 @@ class AdsViewModel: ViewModel() {
 
     private fun setIsFavouriteAd(adId: String) {
         GlobalScope.launch {
-            val isFavourite = checkIfIsFavouriteAd(AdAssembler.adRepository, adId)
+            val isFavourite =
+                checkIfIsFavouriteAd(
+                    AdAssembler.adRepository,
+                    adId
+                )
             _isFavouriteAd.postValue(isFavourite)
         }
     }
