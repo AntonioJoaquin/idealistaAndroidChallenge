@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui.ads.common
+package com.idealista.android.challenge.list.ui.main.ads.common
 
 import android.view.View
 import android.widget.TextView

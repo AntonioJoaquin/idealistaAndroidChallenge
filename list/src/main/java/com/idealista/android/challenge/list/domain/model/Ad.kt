@@ -50,7 +50,7 @@ data class AdDetail(
 
 fun AdDetailEntity.toDomain() =
     AdDetail(
-        adId ?: "",
+        adid ?: "",
         price ?: 0.0,
         Typology.from(extendedPropertyType ?: ""),
         Operation.from(operation ?: ""),

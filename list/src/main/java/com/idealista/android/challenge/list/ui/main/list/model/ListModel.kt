@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui.list.model
+package com.idealista.android.challenge.list.ui.main.list.model
 
 import com.idealista.android.challenge.list.ui.common.model.AdItemListModel
 import com.idealista.android.challenge.list.ui.common.model.toModel

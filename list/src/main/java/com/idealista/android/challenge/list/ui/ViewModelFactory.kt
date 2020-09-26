@@ -2,7 +2,6 @@ package com.idealista.android.challenge.list.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.idealista.android.challenge.list.ui.ads.AdsViewModel
 import java.lang.RuntimeException
 
 class ViewModelFactory: ViewModelProvider.NewInstanceFactory() {

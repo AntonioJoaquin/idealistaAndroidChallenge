@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.idealista.android.challenge.list.ui.favoriteslist.FavouritesAdsViewModel" />
+            type="com.idealista.android.challenge.list.ui.main.list.ListViewModel" />
 
         <variable
             name="adapter"
@@ -17,8 +17,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.favoriteslist.FavouritesAdsActivity">
+        android:layout_height="match_parent" >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewAds"
@@ -26,9 +25,9 @@
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:bindAdapter="@{adapter}"
-            app:setItems="@{viewModel.ads}"
+            app:setItems="@{viewModel.listModel.ads}"
             android:scrollbars="vertical"
             android:background="@color/grey10"
-            tools:context=".ui.list.ListActivity" />
+            tools:context=".ui.main.list.ListFragment" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.idealista.android.challenge.list.R
 import com.idealista.android.challenge.list.databinding.ViewAdBinding
-import com.idealista.android.challenge.list.ui.ads.common.extensions.bindingInflate
+import com.idealista.android.challenge.list.ui.common.extensions.bindingInflate
 import com.idealista.android.challenge.list.ui.common.model.AdItemListModel
 
 class AdListAdapter(
@@ -19,7 +19,6 @@ class AdListAdapter(
 
         override fun areContentsTheSame(oldItem: AdItemListModel, newItem: AdItemListModel): Boolean =
             oldItem.id == newItem.id
-
     }
 
 
