@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui.list
+package com.idealista.android.challenge.list.ui.main.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,8 +9,8 @@ import com.idealista.android.challenge.core.wrench.usecase.UseCase
 import com.idealista.android.challenge.list.ListAssembler
 import com.idealista.android.challenge.list.domain.model.List
 import com.idealista.android.challenge.list.domain.usecase.list
-import com.idealista.android.challenge.list.ui.list.model.ListModel
-import com.idealista.android.challenge.list.ui.list.model.toModel
+import com.idealista.android.challenge.list.ui.main.list.model.ListModel
+import com.idealista.android.challenge.list.ui.main.list.model.toModel
 
 class ListViewModel: ViewModel() {
 

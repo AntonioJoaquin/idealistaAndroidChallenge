@@ -1,7 +1,7 @@
 package com.idealista.android.challenge.core.model.entity
 
 data class AdDetailEntity(
-    val adId: String?,
+    val adid: String?,
     val price: Double?,
     val extendedPropertyType: String?,
     val operation: String?,

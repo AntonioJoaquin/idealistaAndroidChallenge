@@ -4,8 +4,8 @@
 
     <application>
         <activity
-            android:name=".ui.list.ListActivity"
-            android:theme="@style/AppTheme.Base">
+            android:name=".ui.main.MainActivity"
+            android:theme="@style/AppTheme.Base" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -13,10 +13,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.ads.AdsActivity"
-            android:theme="@style/AppTheme.Base" />
-        <activity
-            android:name=".ui.favoriteslist.FavouritesAdsActivity"
+            android:name=".ui.main.ads.AdsActivity"
             android:theme="@style/AppTheme.Base" />
     </application>
 
