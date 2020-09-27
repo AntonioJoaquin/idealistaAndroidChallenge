@@ -15,6 +15,14 @@ allprojects {
         google()
         jcenter()
     }
+
+    ext {
+        lifecycle_version = "2.2.0"
+        room_version = "2.2.5"
+
+        mockitoKotlin_version = "2.1.0"
+        robolectric_version = "4.3"
+    }
 }
 
 task clean(type: Delete) {
