@@ -13,6 +13,8 @@
         <variable
             name="adapter"
             type="com.idealista.android.challenge.list.ui.common.listAdapter.AdListAdapter" />
+
+        <import type="android.view.View" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,8 +29,22 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:bindAdapter="@{adapter}"
             app:setItems="@{viewModel.ads}"
+            app:visibilityState="@{viewModel.loadingState}"
+            app:showWhenLoading="@{false}"
             android:scrollbars="vertical"
             android:background="@color/grey10"
             tools:context=".ui.main.list.ListFragment" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.ProgressBar"
+            style="@style/Widget.AppCompat.ProgressBar"
+            app:visibilityState="@{viewModel.loadingState}"
+            app:showWhenLoading="@{true}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
