@@ -2,13 +2,10 @@ package com.idealista.android.challenge.list.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.tabs.TabLayoutMediator
 import com.idealista.android.challenge.list.R
 import com.idealista.android.challenge.list.databinding.ActivityMainBinding
-import com.idealista.android.challenge.list.ui.favoriteslist.FavouritesAdsFragment
-import com.idealista.android.challenge.list.ui.main.list.ListFragment
 
 class MainActivity : AppCompatActivity() {
 

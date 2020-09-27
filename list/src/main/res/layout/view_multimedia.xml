@@ -7,11 +7,11 @@
 
         <variable
             name="adapter"
-            type="com.idealista.android.challenge.list.ui.main.ads.multimedias.ImageSliderAdapter" />
+            type="com.idealista.android.challenge.list.ui.ads.multimedias.ImageSliderAdapter" />
 
         <variable
             name="viewModel"
-            type="com.idealista.android.challenge.list.ui.main.ads.AdsViewModel" />
+            type="com.idealista.android.challenge.list.ui.ads.AdsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

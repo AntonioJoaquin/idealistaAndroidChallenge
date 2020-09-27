@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui.main.ads.multimedias
+package com.idealista.android.challenge.list.ui.ads.multimedias
 
 import android.view.LayoutInflater
 import android.view.View

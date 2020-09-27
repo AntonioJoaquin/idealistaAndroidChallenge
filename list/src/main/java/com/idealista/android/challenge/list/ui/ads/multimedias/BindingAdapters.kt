@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui.main.ads.multimedias
+package com.idealista.android.challenge.list.ui.ads.multimedias
 
 import androidx.databinding.BindingAdapter
 import androidx.viewpager.widget.ViewPager

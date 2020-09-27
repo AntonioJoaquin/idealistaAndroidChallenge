@@ -13,7 +13,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.main.ads.AdsActivity"
+            android:name="com.idealista.android.challenge.list.ui.ads.AdsActivity"
             android:theme="@style/AppTheme.Base" />
     </application>
 

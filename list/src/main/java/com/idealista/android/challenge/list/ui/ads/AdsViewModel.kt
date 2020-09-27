@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui.main.ads
+package com.idealista.android.challenge.list.ui.ads
 
 import android.util.Log
 import androidx.lifecycle.LiveData
