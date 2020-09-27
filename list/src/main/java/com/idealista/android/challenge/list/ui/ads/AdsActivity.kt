@@ -31,10 +31,18 @@ class AdsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
 
          adUrl = intent.getStringExtra("URL") ?: ""
 
         init()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+
+        return true
     }
 
 
