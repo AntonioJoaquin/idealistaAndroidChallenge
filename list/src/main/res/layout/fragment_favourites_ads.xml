@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.idealista.android.challenge.list.ui.favoriteslist.FavouritesAdsViewModel" />
+            type="com.idealista.android.challenge.list.ui.main.favoriteslist.FavouritesAdsViewModel" />
 
         <variable
             name="adapter"
@@ -20,7 +20,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.favoriteslist.FavouritesAdsFragment">
+        tools:context=".ui.main.favoriteslist.FavouritesAdsFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewAds"

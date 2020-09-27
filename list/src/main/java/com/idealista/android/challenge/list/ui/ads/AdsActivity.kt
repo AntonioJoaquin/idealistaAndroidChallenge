@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui.main.ads
+package com.idealista.android.challenge.list.ui.ads
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,8 +8,8 @@ import com.idealista.android.challenge.list.R
 import com.idealista.android.challenge.list.databinding.ActivityAdsBinding
 import com.idealista.android.challenge.list.ui.ViewModelFactory
 import com.idealista.android.challenge.list.ui.common.extensions.clickForSpannableText
-import com.idealista.android.challenge.list.ui.main.ads.common.DEFAULT_LINES_SPANNABLE_TEXT
-import com.idealista.android.challenge.list.ui.main.ads.multimedias.ImageSliderAdapter
+import com.idealista.android.challenge.list.ui.ads.common.DEFAULT_LINES_SPANNABLE_TEXT
+import com.idealista.android.challenge.list.ui.ads.multimedias.ImageSliderAdapter
 
 class AdsActivity : AppCompatActivity() {
 

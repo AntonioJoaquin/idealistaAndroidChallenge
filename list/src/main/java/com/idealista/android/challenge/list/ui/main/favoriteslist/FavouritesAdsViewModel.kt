@@ -1,4 +1,4 @@
-package com.idealista.android.challenge.list.ui.favoriteslist
+package com.idealista.android.challenge.list.ui.main.favoriteslist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

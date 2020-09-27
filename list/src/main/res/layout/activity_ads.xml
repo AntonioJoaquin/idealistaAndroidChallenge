@@ -8,11 +8,11 @@
 
         <variable
             name="adapter"
-            type="com.idealista.android.challenge.list.ui.main.ads.multimedias.ImageSliderAdapter" />
+            type="com.idealista.android.challenge.list.ui.ads.multimedias.ImageSliderAdapter" />
 
         <variable
             name="viewModel"
-            type="com.idealista.android.challenge.list.ui.main.ads.AdsViewModel" />
+            type="com.idealista.android.challenge.list.ui.ads.AdsViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/grey10"
-            tools:context=".ui.main.ads.AdsActivity">
+            tools:context=".ui.ads.AdsActivity">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidelineMultimedia"

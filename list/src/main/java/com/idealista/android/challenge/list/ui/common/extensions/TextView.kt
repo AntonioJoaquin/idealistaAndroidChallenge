@@ -2,7 +2,7 @@ package com.idealista.android.challenge.list.ui.common.extensions
 
 import android.widget.TextView
 import com.idealista.android.challenge.list.R
-import com.idealista.android.challenge.list.ui.main.ads.common.DEFAULT_LINES_SPANNABLE_TEXT
+import com.idealista.android.challenge.list.ui.ads.common.DEFAULT_LINES_SPANNABLE_TEXT
 
 fun TextView.clickForSpannableText(spannableText: TextView) {
     setOnClickListener {
